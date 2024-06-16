@@ -15,6 +15,7 @@ public static class Sanitiser
 
     private static string SanitiseArbitraryString(string source)
     {
+        if (source == null) return "";
         return source.ToLowerInvariant().Where(c => Alpha.Contains(c)).Aggregate("", (current, c) => current + c);
     }
 }
